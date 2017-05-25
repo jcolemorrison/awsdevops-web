@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  # like before, set the environment
+  # point to our new web image
+  # map it to port 3001
+  # mount our current directory to the web directory
+  # run yarn start
+  web:
+    environment:
+      NODE_ENV: development
+    image: awsdevops/web-dev
+    ports:
+      - 3001:3000
+    volumes:
+      - .:/usr/src/web
+    command: yarn start
+
+  api:
+    environment:
+      NODE_ENV: development
+    image: awsdevops/api-dev
+    ports:
+      - 3002:3000
+    volumes:
+      - $API_ROOT:/usr/src/api
+    command: nodemon .
+
+  mysqlDb:
+    image: awsdevops/mysql-dev
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PWD}"
+    ports:
+      - 3306:3306
+    volumes:
+      - ${DB_VOLUME}:/var/lib/mysql
