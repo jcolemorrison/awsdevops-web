@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1495676847733" clover="3.2.0">
+  <project timestamp="1495676847734" name="All files">
+    <metrics statements="150" coveredstatements="3" conditionals="168" coveredconditionals="0" methods="85" coveredmethods="1" elements="403" coveredelements="4" complexity="0" loc="150" ncloc="150" packages="7" files="26" classes="26">
+      <package name="src">
+        <metrics statements="14" coveredstatements="3" conditionals="16" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <file name="App.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/App.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+        </file>
+        <file name="index-reducer.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/index-reducer.js">
+          <metrics statements="3" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+        <file name="index-sagas.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/index-sagas.js">
+          <metrics statements="2" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/index.js">
+          <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.client">
+        <metrics statements="12" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <file name="actions.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/client/actions.js">
+          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+        </file>
+        <file name="constants.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/client/constants.js">
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/client/reducer.js">
+          <metrics statements="7" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.lib">
+        <metrics statements="17" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <file name="api-errors.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/lib/api-errors.js">
+          <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="check-auth.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/lib/check-auth.js">
+          <metrics statements="15" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="75" count="0" type="stmt"/>
+          <line num="77" count="0" type="stmt"/>
+          <line num="78" count="0" type="stmt"/>
+          <line num="84" count="0" type="stmt"/>
+          <line num="85" count="0" type="stmt"/>
+          <line num="86" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+          <line num="88" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.login">
+        <metrics statements="28" coveredstatements="0" conditionals="44" coveredconditionals="0" methods="21" coveredmethods="0"/>
+        <file name="actions.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/login/actions.js">
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+        <file name="constants.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/login/constants.js">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/login/index.js">
+          <metrics statements="9" coveredstatements="0" conditionals="40" coveredconditionals="0" methods="12" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="85" count="0" type="stmt"/>
+          <line num="89" count="0" type="stmt"/>
+          <line num="95" count="0" type="stmt"/>
+          <line num="98" count="0" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/login/reducer.js">
+          <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
+        </file>
+        <file name="sagas.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/login/sagas.js">
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="92" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.notifications">
+        <metrics statements="8" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <file name="Errors.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/notifications/Errors.js">
+          <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+        </file>
+        <file name="Messages.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/notifications/Messages.js">
+          <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.signup">
+        <metrics statements="29" coveredstatements="0" conditionals="45" coveredconditionals="0" methods="20" coveredmethods="0"/>
+        <file name="actions.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/signup/actions.js">
+          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="constants.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/signup/constants.js">
+          <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/signup/index.js">
+          <metrics statements="9" coveredstatements="0" conditionals="41" coveredconditionals="0" methods="12" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="101" count="0" type="stmt"/>
+          <line num="108" count="0" type="stmt"/>
+          <line num="112" count="0" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/signup/reducer.js">
+          <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+        </file>
+        <file name="sagas.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/signup/sagas.js">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.widgets">
+        <metrics statements="42" coveredstatements="0" conditionals="38" coveredconditionals="0" methods="24" coveredmethods="0"/>
+        <file name="actions.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/widgets/actions.js">
+          <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+        </file>
+        <file name="constants.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/widgets/constants.js">
+          <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+        </file>
+        <file name="index.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/widgets/index.js">
+          <metrics statements="6" coveredstatements="0" conditionals="27" coveredconditionals="0" methods="8" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="184" count="0" type="stmt"/>
+          <line num="191" count="0" type="stmt"/>
+          <line num="192" count="0" type="stmt"/>
+        </file>
+        <file name="reducer.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/widgets/reducer.js">
+          <metrics statements="11" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="82" count="0" type="stmt"/>
+          <line num="93" count="0" type="stmt"/>
+        </file>
+        <file name="sagas.js" path="/Users/jcolemorrison/Products/awsdevops/web/src/widgets/sagas.js">
+          <metrics statements="6" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+          <line num="89" count="0" type="stmt"/>
+          <line num="91" count="0" type="stmt"/>
+          <line num="92" count="0" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
