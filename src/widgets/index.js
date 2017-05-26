@@ -11,7 +11,7 @@ import { widgetCreate, widgetRequest } from './actions'
 // Our validation function for `name` field.
 const nameRequired = value => (value ? undefined : 'Name Required')
 
-class Widgets extends Component {
+export class Widgets extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     invalid: PropTypes.bool.isRequired,
@@ -181,7 +181,7 @@ class Widgets extends Component {
 }
 
 // Pull in both the Client and the Widgets state
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   client: state.client,
   widgets: state.widgets,
 })
