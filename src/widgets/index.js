@@ -9,7 +9,6 @@ import Errors from '../notifications/Errors'
 import { widgetCreate, widgetRequest } from './actions'
 
 // Our validation function for `name` field.
-const nameRequired = value => (value ? undefined : 'Name Required')
 
 export class Widgets extends Component {
   static propTypes = {
@@ -35,6 +34,8 @@ export class Widgets extends Component {
     // call the fetch when the component starts up
     this.fetchWidgets()
   }
+
+  nameRequired = value => (value ? undefined : 'Name Required')
 
   // the helper function for requesting widgets
   // with our client as the parameter
@@ -109,7 +110,7 @@ export class Widgets extends Component {
               id="name"
               className="name"
               component={this.renderNameInput}
-              validate={nameRequired}
+              validate={this.nameRequired}
             />
             <label htmlFor="description">Description</label>
             <Field

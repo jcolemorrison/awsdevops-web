@@ -1,3 +1,103 @@
+exports[`Widgets Class Component #renderNameInput() should render an input with all properties 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <input
+        test="property"
+        type="text" />
+</div>,
+  "nodes": Array [
+    <div>
+      <input
+            test="property"
+            type="text" />
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": null,
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <div>
+    <input
+        test="property"
+        type="text" />
+</div>,
+}
+`;
+
+exports[`Widgets Class Component #renderNameInput() should render the error message if both touched and error 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <input
+        test="property"
+        type="text" />
+    <div
+        style={
+            Object {
+                "color": "#cc7a6f",
+                "fontSize": "0.7rem",
+                "margin": "-10px 0 15px",
+              }
+        }>
+        error
+    </div>
+</div>,
+  "nodes": Array [
+    <div>
+      <input
+            test="property"
+            type="text" />
+      <div
+            style={
+                  Object {
+                        "color": "#cc7a6f",
+                        "fontSize": "0.7rem",
+                        "margin": "-10px 0 15px",
+                      }
+            }>
+            error
+      </div>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": null,
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <div>
+    <input
+        test="property"
+        type="text" />
+    <div
+        style={
+            Object {
+                "color": "#cc7a6f",
+                "fontSize": "0.7rem",
+                "margin": "-10px 0 15px",
+              }
+        }>
+        error
+    </div>
+</div>,
+}
+`;
+
 exports[`Widgets Class Component should render all base children 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
@@ -231,6 +331,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "fetchWidgets": [Function],
+        "nameRequired": [Function],
         "props": Object {
           "client": Object {
             "id": "test",
@@ -505,7 +606,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Widgets Class Component should render error messages if not requesting and if there are error messages 1`] = `
+exports[`Widgets Class Component should render error messages if present 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -758,6 +859,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "fetchWidgets": [Function],
+        "nameRequired": [Function],
         "props": Object {
           "client": Object {
             "id": "test",
@@ -1307,6 +1409,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "fetchWidgets": [Function],
+        "nameRequired": [Function],
         "props": Object {
           "client": Object {
             "id": "test",
@@ -1840,6 +1943,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "fetchWidgets": [Function],
+        "nameRequired": [Function],
         "props": Object {
           "client": Object {
             "id": "test",
@@ -2343,6 +2447,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "fetchWidgets": [Function],
+        "nameRequired": [Function],
         "props": Object {
           "handleSubmit": [Function],
           "invalid": false,
