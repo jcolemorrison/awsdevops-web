@@ -157,4 +157,50 @@ describe('Widgets Class Component', () => {
 
     expect(rendered).toMatchSnapshot()
   })
+
+  describe('#submit', () => {
+    it('should call to #widgetCreate and #reset', () => {
+      const client = {
+        id: 'test',
+        token: {
+          test: 'token',
+        },
+      }
+      const widgets = {
+        list: [
+          { id: '123abc', name: 'test widget', description: 'test', size: 1 },
+        ],
+        requesting: false,
+        successful: false,
+        messages: [],
+        errors: [],
+      }
+
+      const widget = {
+        name: 'test',
+        description: 'test',
+        size: 1,
+      }
+
+      const widgetCreate = jest.fn()
+      const reset = jest.fn()
+
+      const rendered = shallow(
+        <Widgets
+          invalid={false}
+          widgetCreate={widgetCreate}
+          widgetRequest={() => {}}
+          reset={reset}
+          handleSubmit={() => {}}
+          client={client}
+          widgets={widgets}
+        />,
+      )
+
+      const instance = rendered.instance()
+      instance.submit(widget)
+      expect(widgetCreate).toHaveBeenCalledWith(client, widget)
+      expect(reset).toHaveBeenCalled()
+    })
+  })
 })
