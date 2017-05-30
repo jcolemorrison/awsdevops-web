@@ -8,6 +8,14 @@
     "WebTaskImage": {
       "Type": "String",
       "Description": "Url of the Docker Image to deploy"
+    },
+    "VpcId": {
+      "Type":"AWS::EC2::VPC::Id",
+      "Description":"Select a VPC that allows instances to access the Internet."
+    },
+    "BastionSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup::Id",
+      "Description": "Security Group ID of our Bastion Server"
     }
   },
   "Mappings": {
@@ -29,6 +37,54 @@
   "Resources": {
     "WebCluster": {
       "Type": "AWS::ECS::Cluster"
+    },
+    "WebALBSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "SecurityGroup for our Web Application Load Balancer",
+        "VpcId": {
+          "Ref": "VpcId"
+        },
+        "Tags": [{
+          "Key": "Name",
+          "Value": "Web ALB Security Group"
+        }],
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol":"tcp",
+            "FromPort":"80",
+            "ToPort":"80",
+            "CidrIp":"0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "WebInstanceSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "SecurityGroup for our Web Instances",
+        "VpcId": {
+          "Ref": "VpcId"
+        },
+        "Tags": [{
+          "Key": "Name",
+          "Value": "Web Instance Security Group"
+        }],
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol":"tcp",
+            "FromPort":"22",
+            "ToPort":"22",
+            "SourceSecurityGroupId": { "Ref": "BastionSecurityGroup" }
+          },
+          {
+            "IpProtocol":"tcp",
+            "FromPort":"31000",
+            "ToPort":"61000",
+            "SourceSecurityGroupId": { "Ref": "WebALBSecurityGroup" }
+          }
+        ]
+      }
     }
   },
   "Outputs": {
