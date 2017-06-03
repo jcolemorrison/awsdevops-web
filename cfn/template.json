@@ -79,6 +79,11 @@
       "Type": "Number",
       "Default": "1",
       "Description": "Maximum number of instances that can be launched in your ECS cluster."
+    },
+    "DesiredTaskCount": {
+      "Type": "Number",
+      "Default": "1",
+      "Description": "Desired Count of service tasks to launch in your ECS cluster."
     }
   },
   "Mappings": {
@@ -546,7 +551,7 @@
             ]
           ]
         },
-        "ContainerDefintion": [
+        "ContainerDefinitions": [
           {
             "Name": {
               "Fn::Join": [
@@ -595,6 +600,55 @@
             }
           }
         ]
+      }
+    },
+    "WebService": {
+      "Type":"AWS::ECS::Service",
+      "DependsOn":"WebALBListener",
+      "Properties": {
+        "Cluster": {
+          "Ref": "WebCluster"
+        },
+        "DesiredCount": {"Ref": "DesiredTaskCount"},
+        "DeploymentConfiguration":{
+          "MaximumPercent":200,
+          "MinimumHealthyPercent":50
+        },
+        "LoadBalancers": [
+          {
+            "ContainerName": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Ref": "AWS::StackName"
+                  },
+                  "-web-task-container"
+                ]
+              ]
+            },
+            "ContainerPort": "80",
+            "TargetGroupArn": {
+              "Ref": "WebALBTargetGroup"
+            }
+          }
+        ],
+        "PlacementStrategies": [
+          {
+            "Type": "spread",
+            "Field": "attribute:ecs.availability-zone"
+          },
+          {
+            "Type": "spread",
+            "Field": "instanceId"
+          }
+        ],
+        "Role": {
+          "Ref": "WebServiceRole"
+        },
+        "TaskDefinition": {
+          "Ref": "WebTaskDefinition"
+        }
       }
     }
   },
