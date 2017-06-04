@@ -84,6 +84,16 @@
       "Type": "Number",
       "Default": "1",
       "Description": "Desired Count of service tasks to launch in your ECS cluster."
+    },
+    "MaxTaskCount": {
+      "Type": "Number",
+      "Default": "2",
+      "Description": "Max Number of service tasks to scale up to."
+    },
+    "MinTaskCount": {
+      "Type": "Number",
+      "Default": "1",
+      "Description": "Min Number of service tasks to scale down to."
     }
   },
   "Mappings": {
@@ -649,6 +659,41 @@
         "TaskDefinition": {
           "Ref": "WebTaskDefinition"
         }
+      }
+    },
+    "WebServiceCpuAbove40": {
+      "Type":"AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Period": 60,
+        "EvaluationPeriods": 5,
+        "Statistic": "Average",
+        "Threshold": 40,
+        "AlarmDescription": "As our CPU utilization fluctuates around 40",
+        "ComparisonOperator":"GreaterThanThreshold",
+        "AlarmActions": [
+          {
+            "Ref": "WebServiceIncreasePolicy"
+          }
+        ],
+        "Namespace": "AWS/ECS",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": {
+              "Ref": "WebCluster"
+            }
+          },
+          {
+            "Name": "ServiceName",
+            "Value": {
+              "Fn::GetAtt":[
+                "WebService",
+                "Name"
+              ]
+            }
+          }
+        ],
+        "MetricName": "CPUUtilization"
       }
     }
   },
