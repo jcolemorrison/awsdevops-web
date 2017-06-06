@@ -94,6 +94,12 @@
       "Type": "Number",
       "Default": "2",
       "Description": "Max Number of service tasks to scale up to."
+    },
+    "Autoscale": {
+      "Type": "String",
+      "Default": "true",
+      "AllowedValues": ["true", "false"],
+      "ConstraintDescription":"true or false only"
     }
   },
   "Mappings": {
@@ -111,7 +117,11 @@
       "ca-central-1": { "ID" : "ami-ee58e58a" }
     }
   },
-  "Conditions": {},
+  "Conditions": {
+    "CreateAutoScalingResources": {
+      "Fn::Equals": [{ "Ref": "Autoscale" }, "true"]
+    }
+  },
   "Resources": {
     "WebCluster": {
       "Type": "AWS::ECS::Cluster"
@@ -663,6 +673,7 @@
     },
     "WebServiceCpuAbove40": {
       "Type":"AWS::CloudWatch::Alarm",
+      "Condition": "CreateAutoScalingResources",
       "Properties": {
         "Period": 60,
         "EvaluationPeriods": 5,
@@ -698,6 +709,7 @@
     },
     "WebServiceIncreasePolicy": {
       "Type":"AWS::ApplicationAutoScaling::ScalingPolicy",
+      "Condition": "CreateAutoScalingResources",
       "Properties": {
         "PolicyName": {
           "Fn::Join": [
@@ -737,6 +749,7 @@
     },
     "WebServiceScalingTarget": {
       "Type":"AWS::ApplicationAutoScaling::ScalableTarget",
+      "Condition": "CreateAutoScalingResources",
       "DependsOn":"WebService",
       "Properties": {
         "MinCapacity": { "Ref": "MinTaskCount" },
@@ -766,6 +779,89 @@
         },
         "ScalableDimension": "ecs:service:DesiredCount",
         "ServiceNamespace": "ecs"
+      }
+    },
+    "WebInstancesCpuAbove50": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Condition": "CreateAutoScalingResources",
+      "Properties": {
+        "Period": 60,
+        "EvaluationPeriods": 5,
+        "Statistic": "Average",
+        "Threshold": 50,
+        "AlarmDescription": "If our cluster CPU utilization goes above 50",
+        "AlarmActions": [ { "Ref": "WebInstancesScaleUpPolicy" } ],
+        "Namespace": "AWS/ECS",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": {
+              "Ref": "WebCluster"
+            }
+          }
+        ],
+        "ComparisonOperator": "GreaterThanThreshold",
+        "MetricName": "CPUUtilization"
+      }
+    },
+    "WebInstancesScaleUpPolicy": {
+      "Type": "AWS::AutoScaling::ScalingPolicy",
+      "Condition": "CreateAutoScalingResources",
+      "Properties": {
+        "AdjustmentType" : "ChangeInCapacity",
+        "Cooldown" : 300,
+        "PolicyType": "SimpleScaling",
+        "ScalingAdjustment" : 1,
+        "AutoScalingGroupName" : { "Ref" : "WebAutoscalingGroup" }
+      }
+    },
+    "WebInstancesCpuBelow50": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Condition": "CreateAutoScalingResources",
+      "Properties": {
+        "Period": 60,
+        "EvaluationPeriods": 5,
+        "Statistic": "Average",
+        "Threshold": 50,
+        "AlarmDescription": "If our cluster CPU utilization goes below 50",
+        "AlarmActions": [ { "Ref": "WebInstancesScaleDownPolicy" } ],
+        "Namespace": "AWS/ECS",
+        "Dimensions": [
+          {
+            "Name": "ClusterName",
+            "Value": {
+              "Ref": "WebCluster"
+            }
+          }
+        ],
+        "ComparisonOperator": "LessThanThreshold",
+        "MetricName": "CPUUtilization"
+      }
+    },
+    "WebInstancesScaleDownPolicy": {
+      "Type": "AWS::AutoScaling::ScalingPolicy",
+      "Condition": "CreateAutoScalingResources",
+      "Properties": {
+        "AdjustmentType" : "ChangeInCapacity",
+        "AutoScalingGroupName" : { "Ref" : "WebAutoscalingGroup" },
+        "PolicyType": "StepScaling",
+        "EstimatedInstanceWarmup" : 300,
+        "StepAdjustments": [
+          {
+            "MetricIntervalLowerBound": -10,
+            "MetricIntervalUpperBound": 0,
+            "ScalingAdjustment": 0
+          },
+          {
+            "MetricIntervalLowerBound": -20,
+            "MetricIntervalUpperBound": -10,
+            "ScalingAdjustment": -1
+          },
+          {
+            "MetricIntervalUpperBound": -20,
+            "ScalingAdjustment": -2
+          }
+        ]
       }
     }
   },
