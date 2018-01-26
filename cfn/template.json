@@ -522,7 +522,7 @@
                 ]
               ]
             },
-            "PropagateAtLaunch": true
+            "PropagateAtLaunch": "true"
           }
         ]
       },
